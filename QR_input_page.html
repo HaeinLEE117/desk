@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+    <?php
+    date_default_timezone_set('Asia/Seoul');
+    $conn = mysqli_connect(
+    'localhost', // 주소
+    'root',
+    '1234',
+    'agv_monitor');
+?>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <section style=" padding-top: 50px; text-align: center;">
+        <h1>AGV의 QR코드 입력 데이터</h1>
+        <form action="QR_submit.php" method="get">
+            <p>::AGV 번호::</p>
+            <p>
+                <input type="radio" name="VehicleNumber" value='1'>1
+                <input type="radio" name="VehicleNumber" value='2'>2
+                <input type="radio" name="VehicleNumber" value='3'>3
+                <input type="radio" name="VehicleNumber" value='4'>4
+                <input type="radio" name="VehicleNumber" value='5'>5
+            </p>
+            <p>
+                <input type="radio" name="VehicleNumber" value='6'>6
+                <input type="radio" name="VehicleNumber" value='7'>7
+                <input type="radio" name="VehicleNumber" value='8'>8
+                <input type="radio" name="VehicleNumber" value='9'>9
+                <input type="radio" name="VehicleNumber" value='10'>10
+                <input type="radio" name="VehicleNumber" value='11'>11
+            </p>
+            <p><br />현재 위치::  <input type="text" name="PointNumber" placeholder="숫자로 입력 (ex)31"></p>
+            <p><br />목적지::  <input type="text" name="Destination" placeholder="숫자로 입력 (ex)100"></p>
+            <p><br />::제품 운반 여부::  </p>
+            <p>
+                <input type="radio" name="Product" value='1'>Yes
+                <input type="radio" name="Product" value='0'>No
+            </p>
+            <input type='submit'>
+        </form>
+    </section>
+</body>
+</html>

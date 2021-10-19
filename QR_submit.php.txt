@@ -1,0 +1,18 @@
+﻿    <?php
+    date_default_timezone_set('Asia/Seoul');
+    $conn = mysqli_connect(
+    'localhost', // 주소
+    'root',
+    '1234',
+    'agv_monitor');
+
+    $filtered = array(
+    'VehicleNumber'=>mysqli_real_escape_string($conn, $_POST['VehicleNumber']),
+    'PointNumber'=>mysqli_real_escape_string($conn, $_POST['PointNumber']),
+    'Destination'=>mysqli_real_escape_string($conn, $_POST['Destination']),
+    'Product'=>mysqli_real_escape_string($conn, $_POST['Product'])
+    );
+
+    echo $filtered[VehicleNumber];
+
+?>
