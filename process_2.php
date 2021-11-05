@@ -70,7 +70,7 @@ $mysqli = new mysqli($host, $user, $pw, $dbName);
               }
         }
 
-    }else{ //비정상적으로 출발지 외의 장소에서 출발하는 경우
+    }else{ //비정상적으로 출발지 외의 장소에서 출발하는 경우가 아님 이건.. 출발지인데 undefined 목적지..! 출발지가 아닌 곳에서의 출발은 경로가 설정 되어있는데~
         $error_message = "VN: ".$VehicleNumber." PN: ".$PointNumber." DN: ".$Destination;
         $query ="insert into error_log(code, message, Time)
         VALUES(1002,'
@@ -116,13 +116,13 @@ mysqli_close($mysqli);
 //=====================================================
 
 
-function set_collision($called_destination, $readed_RFOD){   //목적지 한쌍이 정상적으로 입력되었을 때 충돌이 예상되는 location point를 점령함 
+function set_collision($called_destination, $readed_RFID){   //목적지 한쌍이 정상적으로 입력되었을 때 충돌이 예상되는 location point를 점령함 
     $dic_destination_positiont = array('101'=>'406', '306'=>'2307', '307'=>'2101',
     '406'=>'101', '2307'=>'306','2101'=>'307');
 
 
 
-    if($readed_RFOD == $dic_destination_positiont[$called_destination]){
+    if($readed_RFID == $dic_destination_positiont[$called_destination]){
 
         echo "matched";
         return true;
